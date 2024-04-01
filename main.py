@@ -9,7 +9,7 @@ pygame.display.set_caption('Аламан Бәйге')
 bg_image = pygame.image.load('images/bg_image.png')
 bg_x = 0
 finish = pygame.image.load('images/finish.png').convert_alpha()
-game_start = True
+game_start = False
 bg_sound = pygame.mixer.Sound('music/bg_music.mp3')
 bg_sound.play()
 
@@ -78,10 +78,11 @@ while True:
     screen.blit(finish, (1000, 550))
     keys = pygame.key.get_pressed()
     if keys[pygame.K_RIGHT]:
+        game_start = True
         red_jokey_x += red_jockey_speed
         screen.blit(red_jockey_list[red_jockey_count], (red_jokey_x, 400))
         if red_jockey_count == 9:
-            red_jockey_count = 0
+            red_jockey_count = 1
         else:
             red_jockey_count += 1
     else:
@@ -91,7 +92,7 @@ while True:
         blue_jokey_x += blue_jockey_speed
         screen.blit(blue_jockey_list[blue_jockey_count], (blue_jokey_x, 500))
         if blue_jockey_count == 9:
-            blue_jockey_count = 0
+            blue_jockey_count = 1
         else:
             blue_jockey_count += 1
     else:
@@ -101,7 +102,7 @@ while True:
         green_jockey_x += green_jockey_speed
         screen.blit(green_jockey_list[green_jockey_count], (green_jockey_x, 600))
         if green_jockey_count == 9:
-            green_jockey_count = 0
+            green_jockey_count = 1
         else:
             green_jockey_count += 1
     else:
